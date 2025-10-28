@@ -1,0 +1,247 @@
+{
+  "doc_type": "pipeline",
+  "version": "3.0",
+  "json_schema": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "id": "elyra-auto-generated-pipeline",
+  "primary_pipeline": "primary",
+  "pipelines": [
+    {
+      "id": "primary",
+      "nodes": [
+        {
+          "id": "2904cc00-6fd6-4075-ac3a-440a2bf5a4a5",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [],
+              "env_vars": [],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "Check for new docs.ipynb",
+              "runtime_image": "quay.io/modh/runtime-images@sha256:d107b3a514c5df24a5640a4c4d51a580a83cddac2659da2e3855c4a5e9987e1c"
+            },
+            "label": "",
+            "ui_data": {
+              "label": "Check for new docs.ipynb",
+              "image": "/notebook/dell-digital-assistant/workbench/static/elyra/notebook.svg",
+              "x_pos": 119,
+              "y_pos": 167,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "8c0b1ee5-bb0d-4a16-99d3-7a3036192da2",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [],
+              "env_vars": [],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "Pull new docs and perform text cleanup.ipynb",
+              "runtime_image": "quay.io/modh/runtime-images@sha256:d107b3a514c5df24a5640a4c4d51a580a83cddac2659da2e3855c4a5e9987e1c"
+            },
+            "label": "",
+            "ui_data": {
+              "label": "Pull new docs and perform text cleanup.ipynb",
+              "image": "/notebook/dell-digital-assistant/workbench/static/elyra/notebook.svg",
+              "x_pos": 469,
+              "y_pos": 93,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "e05fd98a-54fe-4291-b54e-2aab8f9c0df8",
+                  "node_id_ref": "2904cc00-6fd6-4075-ac3a-440a2bf5a4a5",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "985a8027-37dd-47af-98fc-0651b87c4686",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [],
+              "env_vars": [],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "Document Embedding with Metadata.ipynb",
+              "runtime_image": "quay.io/modh/runtime-images@sha256:d107b3a514c5df24a5640a4c4d51a580a83cddac2659da2e3855c4a5e9987e1c"
+            },
+            "label": "",
+            "ui_data": {
+              "label": "Document Embedding with Metadata.ipynb",
+              "image": "/notebook/dell-digital-assistant/workbench/static/elyra/notebook.svg",
+              "x_pos": 645,
+              "y_pos": 329,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "28ccf1de-a8c2-470a-b3ea-f884b7551144",
+                  "node_id_ref": "8c0b1ee5-bb0d-4a16-99d3-7a3036192da2",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "app_data": {
+        "ui_data": {
+          "comments": []
+        },
+        "version": 8,
+        "runtime_type": "KUBEFLOW_PIPELINES",
+        "properties": {
+          "name": "untitled",
+          "runtime": "Data Science Pipelines",
+          "pipeline_defaults": {
+            "kubernetes_shared_mem_size": {},
+            "kubernetes_pod_labels": [],
+            "mounted_volumes": [
+              {
+                "path": "/data",
+                "pvc_name": "pipelinetest",
+                "read_only": false
+              }
+            ],
+            "kubernetes_tolerations": [],
+            "kubernetes_pod_annotations": [],
+            "kubernetes_secrets": [],
+            "env_vars": []
+          },
+          "pipeline_parameters": {
+            "pipeline_defaults": {
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_pod_labels": [],
+              "mounted_volumes": [
+                {
+                  "path": "/data",
+                  "pvc_name": "pipelinetest",
+                  "sub_path": "",
+                  "read_only": false
+                }
+              ],
+              "kubernetes_tolerations": [],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_secrets": [],
+              "env_vars": []
+            },
+            "name": "untitled",
+            "runtime": "Data Science Pipelines"
+          }
+        }
+      },
+      "runtime_ref": ""
+    }
+  ],
+  "schemas": []
+}
